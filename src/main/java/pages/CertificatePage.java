@@ -11,7 +11,7 @@ public class CertificatePage {
     @FindBy(name="certificate")
     WebElement searchField;
 
-    @FindBy(id = "certificateCheckForm")
+    @FindBy(xpath = "//p[@class='certificate-check_message']")
     WebElement checkFormMessage;
 
     WebDriver driver;
@@ -38,7 +38,7 @@ public class CertificatePage {
                 result = true;
                 break;
             }
-            if (checkFormMessage.getAttribute("class").contains("invalid")) {
+            if (checkFormMessage.getText().contains("Сертифікат не знайдено")) {
                 result = false;
                 break;
             }
